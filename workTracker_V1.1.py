@@ -108,30 +108,35 @@ def GUI():
         currentTime = datetime.datetime.now()
         date = str(currentTime).split(" ")
         displayDate = date[0]
+        currentDay = currentTime.strftime('%A')
+        print(currentDay)
         
         # Read spreadsheet and sheet.
         workbook = load_workbook("Work Tracker.xlsx")
         sheet = workbook.active
         
-        # Get the number of rows.
-        rowNumber = sheet.max_row
+        # If day isn't the weekend.
+        if currentDay!='Saturday' and 'Sunday':
         
-        # If dates have already been entered.
-        if rowNumber > 1:
+            # Get the number of rows.
+            rowNumber = sheet.max_row
             
-            # Getting value for the last cell.
-            lastCell = sheet['A' + str(rowNumber)].value
+            # If dates have already been entered.
+            if rowNumber > 1:
             
-            # If previous date not equal to current date.
-            if lastCell!=displayDate:
+                # Getting value for the last cell.
+                lastCell = sheet['A' + str(rowNumber)].value
+            
+                # If previous date not equal to current date, and the day is not the weekend.
+                if lastCell!=displayDate:
+                    
+                    # Add current date.
+                    sheet['A' + str(rowNumber + 1)] = displayDate
                 
-                # Add current date.
-                sheet['A' + str(rowNumber + 1)] = displayDate
-            
-        else:
-            
-            # Enter the first date.
-            sheet['A2'] = displayDate
+            else:
+                
+                # Enter the first date.
+                sheet['A2'] = displayDate
         
         # Save workbook as specific name.
         workbook.save("Work Tracker.xlsx")
