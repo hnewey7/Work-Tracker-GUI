@@ -14,6 +14,7 @@ import datetime
 import pandas as pd
 from datetime import date
 from openpyxl import load_workbook
+from openpyxl.styles import Alignment
 
 # Initialisation.
 def init():
@@ -36,6 +37,10 @@ def init():
         sheet['B1'] = 'Start Time:'
         sheet['C1'] = 'End Time:'
         sheet['D1'] = 'Tasks:'
+        
+        # Setting column widths and wrapping text.
+        sheet.column_dimensions['A'].width = 10
+        sheet.column_dimensions['D'].width = 50
         
         # Save workbook as specific name.
         workbook.save("Work Tracker.xlsx")
@@ -219,6 +224,9 @@ def GUI():
         
         # Save workbook as specific name.
         workbook.save("Work Tracker.xlsx")
+        
+        # Clearing task entry.
+        addTaskText.delete(0, tk.END)
     
     # Creating window with tkinter.
     window = tk.Tk()
