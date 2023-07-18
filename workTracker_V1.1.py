@@ -6,15 +6,10 @@ Created on Sat Jul  8 12:40:49 2023
 """
 
 import os
-import sys
 from openpyxl import Workbook, load_workbook
 import tkinter as tk
 from tkinter import ttk
 import datetime
-import pandas as pd
-from datetime import date
-from openpyxl import load_workbook
-from openpyxl.styles import Alignment
 
 # Initialisation.
 def init():
