@@ -51,7 +51,7 @@ def init():
 def checkForSpreadsheet():
     
     # Get folder path.
-    folderPath = getFolder()
+    folderPath = os.path.dirname(os.path.abspath(__file__))
     
     # File path for spreadsheet.
     filePath = folderPath + "\\Work Tracker.xlsx"
@@ -62,23 +62,6 @@ def checkForSpreadsheet():
     else:
         return False
 
-# Gets current folder path.
-def getFolder():
-    
-    # Get current path.
-    scriptPath = os.path.abspath(__file__)
-    
-    # Set character to search for.
-    character = "\\"
-    
-    # Index of last backslash.
-    index = scriptPath.rindex(character)
-    
-    # Cropping to folder path.
-    folderPath = scriptPath[0:index]
-    
-    return(folderPath)
-    
 # Launch GUI
 def GUI():
     
