@@ -145,6 +145,10 @@ def GUI():
         
         # Save workbook as specific name.
         workbook.save("Work Tracker.xlsx")
+
+        #Clearing start time.
+        startTimeHours.set('0')
+        startTimeMins.set('0')
     
     # Functon to set the end time.
     def setEndTime():
@@ -169,6 +173,10 @@ def GUI():
         
         # Save workbook as specific name.
         workbook.save("Work Tracker.xlsx")
+
+        #Clearing end time.
+        endTimeHours.set('0')
+        endTimeMins.set('0')
         
     def addTask():
         print("Task Added.")
