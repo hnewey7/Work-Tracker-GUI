@@ -10,6 +10,7 @@ from openpyxl import Workbook, load_workbook
 import tkinter as tk
 from tkinter import ttk
 import datetime
+import sys
 
 # Initialisation.
 def init():
@@ -51,7 +52,7 @@ def init():
 def checkForSpreadsheet():
     
     # Get folder path.
-    folderPath = os.path.dirname(os.path.abspath(__file__))
+    folderPath = os.path.dirname(os.path.abspath(sys.argv[0]))
     
     # File path for spreadsheet.
     filePath = folderPath + "\\Work Tracker.xlsx"
